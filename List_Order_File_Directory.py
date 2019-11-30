@@ -1,5 +1,16 @@
-import sys 
+#%%
+import sys
+import os
 
-dir=sys.argv[1]
+print(len(sys.argv))
 
-print(dir)
+if len(sys.argv)>=2:
+    test1=sys.argv[1]
+    print(test1)
+else:
+    print("Argumento vacio")
+
+
+
+
+# %%
