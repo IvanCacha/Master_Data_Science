@@ -1,14 +1,16 @@
 #%%
+
 import sys
 import os
 
-print(len(sys.argv))
-
 if len(sys.argv)>=2:
-    test1=sys.argv[1]
-    print(test1)
+    dir_path=sys.argv[1]
 else:
-    print("Argumento vacio")
+    dir_path=os.path.dirname(os.path.realpath(__file__))
+    
+print('El directorio establecido es: ' + dir_path)
+
+
 
 
 
