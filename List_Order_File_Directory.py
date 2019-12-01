@@ -2,6 +2,8 @@
 
 import sys
 import os
+import numpy as np
+import pandas as pd
 
 if len(sys.argv)>=2:
     dir_path=sys.argv[1]
@@ -22,11 +24,22 @@ for r, d, f in os.walk(dir_path):
         files.append(os.path.join(r, file))
 
 for i in range(len(files)):
-        files[i] = (files[i], os.path.getsize(files[i]))
+    try:
+        with open(files[i], 'r') as f:
+            count=0
+            print ('analizando fichero: ' + files[i])
+            for line in f:
+                count += 1
+    except Exception:
+        count="No se puede contar"
+        pass
+    files[i] = (files[i], os.path.getsize(files[i]),count)
 
 files.sort(key=lambda filename: filename[1], reverse=True)
 
-print(files)
+files_pd=pd.DataFrame(files)
+
+print(files_pd)
 
 
 # %%
