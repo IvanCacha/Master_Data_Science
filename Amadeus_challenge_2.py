@@ -40,3 +40,9 @@ df = df_booking[['arr_port','pax', 'year']]
 df.head()
 
 # %%
+year_filter = df['year'] == 2013
+result = df[year_filter][['arr_port','pax']].groupby('arr_port').sum().sort_values('pax',ascending=False)
+result
+top10 = result.iloc[:10]
+top10
+# %%
