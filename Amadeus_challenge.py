@@ -7,14 +7,17 @@ searches_file = directory + 'searches.csv.bz2'
 bookings_file = directory + 'bookings.csv.bz2'
 
 # %%
-df_booking=pd.read_csv(bookings_file, 
+try:   
+    df_booking=pd.read_csv(bookings_file, 
                        compression='bz2',
                        header=None,
                        chunksize=500000)
-df_search = pd.read_csv(searches_file,
+    df_search = pd.read_csv(searches_file,
                        compression='bz2',
                        header=None,
                        chunksize=500000)
+except FileNotFoundError as message:
+    print(message)
 
 
 # %%
