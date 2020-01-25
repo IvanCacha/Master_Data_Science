@@ -65,7 +65,23 @@ all_bookings.shape
 # %%
 result= all_bookings.groupby('arr_port').sum().sort_values('pax',ascending=False)
 top10 = result.iloc[:10]
-top10
+top10.reset_index(inplace=True)
 # %%
+import neobase as nb
+from neobase import NeoBase
 
 
+# %%
+geoDict = NeoBase()
+
+# %%
+type(geoDict)
+
+# %%
+geoDict.get('LHR')
+
+# %%
+top10.iloc[0,0]
+
+# %%
+top
