@@ -63,13 +63,13 @@ for i, chunks in enumerate(df_booking):
 all_bookings.shape      
 
 # %%
-result= all_bookings.groupby('arr_port').sum().sort_values('pax',ascending=False)
+result= all_bookings.groupby('arr_port').sum().sort_values('pax',ascending=False).
 top10 = result.iloc[:10]
 top10.reset_index(inplace=True)
 # %%
 import neobase as nb
 from neobase import NeoBase
-
+res
 
 # %%
 geoDict = NeoBase()
@@ -84,4 +84,16 @@ geoDict.get('LHR')
 top10.iloc[0,0]
 
 # %%
-top
+result.reset_index(inplace=True)
+result['arr_port']=result['arr_port'].str.strip()
+
+#%%
+result[result['arr_port']=='CPQ']
+# %%
+result.drop(result[result['arr_port']=='CPQ'].index, inplace=True)
+result['AirportName']=result['arr_port'].map(lambda x: geoDict.get(x)['name'])
+result
+# %%
+result
+
+# %%
