@@ -22,9 +22,9 @@ except FileNotFoundError as message:
 
 # %%
 sample_bookings=df_booking.get_chunk(10000)
-sample_bookings.to_csv(directory+ 'Sample_Bookings.csv.bz2',compression='bz2')
+sample_bookings.to_csv(directory+ 'Sample_Bookings.csv.bz2',compression='bz2', index=None, index_label=None)
 sample_searches=df_search.get_chunk(10000)
-sample_searches.to_csv(directory+ 'Sample_Searches.csv.bz2',compression='bz2')
+sample_searches.to_csv(directory+ 'Sample_Searches.csv.bz2',compression='bz2', index=None, index_label=None)
 
 # %%
 sample_bookings
