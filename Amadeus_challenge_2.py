@@ -94,6 +94,6 @@ result.drop(result[result['arr_port']=='CPQ'].index, inplace=True)
 result['AirportName']=result['arr_port'].map(lambda x: geoDict.get(x)['name'])
 result
 # %%
-result
+result.to_csv(directory + 'Top10.csv')
 
 # %%
